@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'main/partials/meta.html' %}
+
+    {% block meta %}
+    {% endblock %}
+
+    {% include 'main/partials/style.html' %}
+
+    {% block styles %}
+    {% endblock %}
+</head>
+
+<body>
+
+
+    {% block body %}
+    {% endblock %}
+
+    {% include 'main/partials/scripts.html' %}
+    {% include 'main/partials/footer.html' %}
+
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>

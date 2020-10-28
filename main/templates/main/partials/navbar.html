@@ -1,0 +1,53 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container align-middle">
+        <a class="navbar-brand text-danger font-weight-bold" href="{% url 'homepage' %}">Jigao</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">
+                        <i class="fas fa-home text-danger ">Home</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-edit">Answer</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-people-arrows">Spaces</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="far fa-bell">Notifications</i></a>
+                </li>
+            </ul>
+
+            <div class="row ">
+                <div class="col-6">
+                    <form class="d-flex">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn btn-outline-danger" type="submit">
+                            Search
+                        </button>
+                    </form>
+
+
+                </div>
+                <div class="col-6 d-flex ">
+                    <a href="#"><i class="fas fa-user-circle fa-lg ml-3 "></i></a>
+                    {% if user.is_authenticated %}
+                        <a href="#">{{ user.username }}</a>
+                        <a type="btn" class="btn btn-danger btn-sm ml-2" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a type="btn" class="btn btn-danger btn-sm ml-2" href="{% url 'login' %}"> Login</a>
+                    {% endif %}
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</nav>

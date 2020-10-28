@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Account | Register</title>
+{% endblock %}
+
+
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Login</title>#}
+{#    <link rel="stylesheet" href="{% static 'account/css/bootstrap.css' %}">#}
+{#</head>#}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center alert alert-danger mt-5">Login</h1>
+        <h4 class="text-center">{{ msg }}</h4>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="text" class="form-control" name="username" id="username"
+                               aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="Password">
+                    </div>
+                    <p>Don't have an account? Click <a href="{% url 'register' %}">here</a> to create a new one.</p>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+    {#    <script src="{% static 'account/js/jquery.js' %}"></script>#}
+    {#    <script src="{% static 'account/js/popper.js' %}"></script>#}
+    {#    <script src="{% static 'account/js/bootstrap.js' %}"></script>#}
+
+{% endblock %}
+
