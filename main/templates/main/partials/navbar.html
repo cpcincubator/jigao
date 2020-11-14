@@ -1,53 +1,141 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container align-middle">
-        <a class="navbar-brand text-danger font-weight-bold" href="{% url 'homepage' %}">Jigao</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
-                        <i class="fas fa-home text-danger ">Home</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-edit">Answer</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-people-arrows">Spaces</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="far fa-bell">Notifications</i></a>
-                </li>
-            </ul>
+<nav class="navbar">
+	<div class="container">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="{% url 'homepage' %}"> <img src="{% static 'images/logo.png' %}" alt="jigao" width="100px"/> </a> 
+			<span class="navbar-burger burger"
+				data-target="navbarMenu">
+				<span></span>
+				<span></span>
+				<span></span>
+				</span>
+		</div>
 
-            <div class="row ">
-                <div class="col-6">
-                    <form class="d-flex">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class="btn btn-outline-danger" type="submit">
-                            Search
-                        </button>
-                    </form>
+		<div id="navbarMenu" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="field has-addons mt-3 mr-3">
+					<div class="control">
+						<input class="input" type="text" placeholder="Search">
+					</div>
+					<div class="control">
+						<a class="button is-info">
+							Search
+						</a>
+					</div>
+				</div>
+
+				<a href="{% url 'homepage' %}" class="navbar-item is-active">
+					<span class="material-icons">
+						home
+					</span> Home
+				</a>
+				<a href="{% url 'answer' %}" class="navbar-item">
+					<span class="material-icons">
+						question_answer
+					</span> Answer
+				</a>
+				<a class="navbar-item">
+					<span class="material-icons">
+						emoji_people
+					</span>Following
+				</a>
+
+				<a class="navbar-item">
+					<span class="material-icons">
+						category
+					</span> Spaces
+				</a>
+				<a class="navbar-item">
+					<span class="material-icons">
+						notification_important
+					</span> Notification
+				</a>
 
 
-                </div>
-                <div class="col-6 d-flex ">
-                    <a href="#"><i class="fas fa-user-circle fa-lg ml-3 "></i></a>
-                    {% if user.is_authenticated %}
-                        <a href="#">{{ user.username }}</a>
-                        <a type="btn" class="btn btn-danger btn-sm ml-2" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                        <a type="btn" class="btn btn-danger btn-sm ml-2" href="{% url 'login' %}"> Login</a>
-                    {% endif %}
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link">
+						<span class="material-icons">
+							account_circle
+						</span> Account
+					</a>
+					<div class="navbar-dropdown">
+						<a class="navbar-item">
+							Dashboard
+						</a>
+						<a class="navbar-item">
+							Profile
+						</a>
+						<a class="navbar-item">
+							Settings
+						</a>
+						<hr class="navbar-divider">
+						<div class="navbar-item">
+							Logout
+						</div>
+					</div>
+				</div>
 
-                </div>
-            </div>
+				<a class="navbar-item">
+					<p>
+						<a class="button is-info is-small modal-button" data-target="#modal">Add Question</a>
+					</p>
+
+					<!-- modal content -->
+					<div id="modal" class="modal">
+						<div class="modal-background"></div>
+						<div class="modal-content">
+							<div class="box">
+								<div class="card">
+
+									<div class="card-content">
+										<div class="content">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
+											iaculis
+											mauris.
+
+										</div>
 
 
-        </div>
-    </div>
+									</div>
+
+									<article class="media">
+										<div class="media-left">
+											<figure class="image is-48x48">
+												<img class="is-rounded"
+													src="https://bulma.io/images/placeholders/128x128.png">
+											</figure>
+										</div>
+										<div class="media-content pr-5">
+											<div class="content">
+
+												<span class="title">Create your questions</span>
+
+												<p class="field">
+													<div class="control">
+														<input class="input is-rounded" type="text"
+															placeholder="Title of questoion">
+
+
+														<hr>
+														<input class="input is-rounded" type="text" placeholder="Link">
+														<hr>
+
+													</div>
+
+
+												</p>
+											</div>
+
+										</div>
+									</article>
+								</div>
+							</div>
+						</div>
+						<button class="modal-close"></button>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
 </nav>
+<!-- END NAV -->

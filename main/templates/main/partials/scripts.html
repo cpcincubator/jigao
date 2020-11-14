@@ -5,3 +5,36 @@
 <script src="{% static 'vendors/bootstrap/popper.min.js' %}"></script>
 <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
 {#<script src="{% static 'js/custom.js' %}"></script>#}
+
+<script async type="text/javascript" src="../js/bulma.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        //The first argument are the elements to which the plugin shall be initialized
+        //The second argument has to be at least a empty object or a object with your desired options
+        OverlayScrollbars(document.querySelectorAll("body"), {});
+    });
+
+
+    $(".modal-button").click(function () {
+        var target = $(this).data("target");
+        $("html").addClass("is-clipped");
+        $(target).addClass("is-active");
+    });
+
+    $(".modal-close").click(function () {
+        $("html").removeClass("is-clipped");
+        $(this).parent().removeClass("is-active");
+    });
+</script>
+
+<script>
+    (function () {
+        var burger = document.querySelector('.burger');
+        var menu = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+</script>

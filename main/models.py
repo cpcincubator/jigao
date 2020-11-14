@@ -52,6 +52,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    share = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -76,3 +77,20 @@ class Comment(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     connection = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField(max_length=300, null=True)
+
+
+class Questions(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    CONDITION_CHOICES = [
+        ('public', 'Public'),
+        ('friends', 'Friends'),
+        ('anonymous', 'Anonynomous')
+    ]
+    question_title=models.TextField(max_length=200)
+    question_link=models.URLField(max_length=200)
+    optional_content = models.TextField(max_length=200)
+    optional_link= models.URLField(max_length=200)
+
+
+
+

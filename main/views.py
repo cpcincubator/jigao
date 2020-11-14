@@ -17,6 +17,14 @@ def home(request):
     else:
         return render(request, 'main/index.html')
 
+def answer(request):
+    return render(request, 'main/answer.html')
+
+def post(request):
+    return render(request, 'main/post.html')
+
+def contact(request):
+    return render(request, 'main/contact.html')
 
 def login(request):
     if request.user.is_authenticated:
@@ -65,3 +73,5 @@ def register(request):
 
             elif email_count > 0:
                 return render(request, 'account/register.html', {'msg': 'This email is in used'})
+
+

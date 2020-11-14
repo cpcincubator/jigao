@@ -2,51 +2,81 @@
 {% load static %}
 
 {% block meta %}
-    <title>Account | Register</title>
+<title>Jigao | Create Account</title>
 {% endblock %}
 
-{#<head>#}
-{#    #}
-{#    <link rel="stylesheet" href="{% static 'account/css/bootstrap.css' %}">#}
-{#</head>#}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock  %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="text-center alert alert-danger mt-5">Registration</h1>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <form method="POST">
-                    {% csrf_token %}
-                    <h4>{{ msg }}</h4>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" name="username" id="username"
-                               aria-describedby="emailHelp" placeholder="Enter Username">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                               placeholder="Enter Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                               placeholder="Enter Password">
-                    </div>
-                    <p>Already have an account? Login <a href="{% url 'login' %}">here</a></p>
-                    <input type="submit" class="btn btn-danger" value="Create Account">
-                </form>
+
+<section class="container">
+    <div class="columns is-multiline">
+        <div class="column is-8 is-offset-2 register">
+            <div class="columns">
+                <div class="column left">
+                    <h1 class="title is-1">Super Cool Website</h1>
+                    <h2 class="subtitle colored is-4">Lorem ipsum dolor sit amet.</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis ex deleniti aliquam tempora
+                        libero excepturi vero soluta odio optio sed.</p>
+                </div>
+                <div class="column right has-text-centered">
+                    <h1 class="title is-4">Sign up today</h1>
+                    <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+                    <form>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" placeholder="Name">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                        <br />
+                        <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+                    </form>
+                </div>
             </div>
-            <div class="col-sm-3"></div>
+        </div>
+        <div class="column is-8 is-offset-2">
+            <br>
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <span class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </span> &emsp;
+                        <span class="icon">
+                            <i class="fab fa-facebook"></i>
+                        </span> &emsp;
+                        <span class="icon">
+                            <i class="fab fa-instagram"></i>
+                        </span> &emsp;
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span> &emsp;
+                        <span class="icon">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <small class="level-item" style="color: var(--textLight)">
+                        &copy; Super Cool Website. All Rights Reserved.
+                    </small>
+                </div>
+            </nav>
         </div>
     </div>
+</section>
 
 
-    {#    <script src="{% static 'account/js/jquery.js' %}"></script>#}
-    {#    <script src="{% static 'account/js/popper.js' %}"></script>#}
-    {#    <script src="{% static 'account/js/bootstrap.js' %}"></script>#}
+
 
 
 {% endblock %}
-

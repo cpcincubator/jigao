@@ -1,0 +1,170 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Jigao | Questions Answer</title>
+{% endblock %}
+
+{% block body %}
+<!--NAVBAR-->
+{% include 'main/partials/navbar.html' %}
+
+
+<div class="container mt-3">
+    <div class="columns">
+
+
+        <div class="column is-2 ">
+            <h1>Questions</h1>
+            <hr>
+            <a class="button is-light  is-normal my-1">Questions for you</a>
+            <a class="button is-white is-normal my-1">Answer requests</a>
+            <a class="button is-white is-normal my-1">Answer drafts</a>
+        </div>
+
+        <div class="column is-8">
+
+            <!-- START ARTICLE FEED -->
+            <section class="articles">
+                <div class="column">
+                    <!-- START ARTICLE -->
+                    <div class="card article">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Component
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                                    <span class="icon">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                                    mauris.
+
+                                </div>
+
+                            </div>
+                            <hr>
+                            <footer class="columns ">
+
+                                <a href="#" class="column is-2 has-text-centered "> Answer</a>
+                                <a href="#" class="column is-2 has-text-centered ">Save</a>
+                                <a href="#" class="column is-2 has-text-centered ">Pas</a>
+                                <a href="#" class="column is-1 is-offset-3 "> <span class="material-icons">
+                                        arrow_circle_down
+                                    </span> </a>
+                                <a href="#" class="card-footer-item"> <span class="material-icons">
+                                        mobile_screen_share
+                                    </span> </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END ARTICLE -->
+
+
+
+                </div>
+
+            </section>
+
+            <section class="articles">
+                <div class="column">
+                    <!-- START ARTICLE -->
+                    <div class="card article">
+                        <div class="card">
+
+                            <div class="card-content">
+                                <div class="content">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                                    mauris.
+
+                                </div>
+
+                            </div>
+                            <hr>
+                            <footer class="columns ">
+
+                                <a href="#" class="column is-2 has-text-centered "> Answer</a>
+                                <a href="#" class="column is-2 has-text-centered ">Save</a>
+                                <a href="#" class="column is-2 has-text-centered ">Pas</a>
+                                <a href="#" class="column is-1 is-offset-3 "> <span class="material-icons">
+                                        arrow_circle_down
+                                    </span> </a>
+                                <a href="#" class="card-footer-item"> <span class="material-icons">
+                                        mobile_screen_share
+                                    </span> </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END ARTICLE -->
+
+
+
+                </div>
+
+            </section>
+            <!-- END ARTICLE FEED -->
+
+            <section class="articles">
+                <div class="column">
+                    <!-- START ARTICLE -->
+                    <div class="card article">
+                        <div class="card">
+
+                            <div class="card-content">
+                                <div class="content">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                                    mauris.
+
+                                </div>
+
+                            </div>
+                            <hr>
+                            <footer class="columns ">
+
+                                <a href="#" class="column is-2 has-text-centered "> Answer</a>
+                                <a href="#" class="column is-2 has-text-centered ">Save</a>
+                                <a href="#" class="column is-2 has-text-centered ">Pas</a>
+                                <a href="#" class="column is-1 is-offset-3 "> <span class="material-icons">
+                                        arrow_circle_down
+                                    </span> </a>
+                                <a href="#" class="card-footer-item"> <span class="material-icons">
+                                        mobile_screen_share
+                                    </span> </a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END ARTICLE -->
+
+
+
+                </div>
+
+            </section>
+            <!-- END ARTICLE FEED -->
+
+
+        </div>
+        <div class="column is-2">
+            <div class="card">
+
+                <div class="card-content">
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                        mauris.
+
+                    </div>
+                    <button class="button is-small is-info is-rounded">Add Topic</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

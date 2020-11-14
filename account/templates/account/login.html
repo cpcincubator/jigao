@@ -2,48 +2,56 @@
 {% load static %}
 
 {% block meta %}
-    <title>Account | Register</title>
+    <title>Jigao | Login</title>
 {% endblock %}
 
 
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#    <title>Login</title>#}
-{#    <link rel="stylesheet" href="{% static 'account/css/bootstrap.css' %}">#}
-{#</head>#}
+{% block style %}
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock  %}
+ {% block body %}
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-black">Login</h3>
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-black">Please login to proceed.</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="https://placehold.it/128x128">
+                        </figure>
+                        <form>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                </div>
+                            </div>
 
-{% block body %}
-    <div class="container">
-        <h1 class="text-center alert alert-danger mt-5">Login</h1>
-        <h4 class="text-center">{{ msg }}</h4>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="text" class="form-control" name="username" id="username"
-                               aria-describedby="emailHelp" placeholder="Enter email">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" placeholder="Your Password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in"
+                                    aria-hidden="true"></i></button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                               placeholder="Password">
-                    </div>
-                    <p>Don't have an account? Click <a href="{% url 'register' %}">here</a> to create a new one.</p>
-
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
+                    <p class="has-text-grey">
+                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                        <a href="../">Need Help?</a>
+                    </p>
+                </div>
             </div>
-            <div class="col-sm-3"></div>
         </div>
-    </div>
-
-    {#    <script src="{% static 'account/js/jquery.js' %}"></script>#}
-    {#    <script src="{% static 'account/js/popper.js' %}"></script>#}
-    {#    <script src="{% static 'account/js/bootstrap.js' %}"></script>#}
+    </section>
 
 {% endblock %}
 

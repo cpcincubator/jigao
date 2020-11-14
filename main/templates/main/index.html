@@ -1,182 +1,134 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block meta %}
-    <title>Jigao | ja kichu jante chao</title>
+<title>Jigao | ja kichu jante chao</title>
 {% endblock %}
 
-{% block body %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock  %}
+{%  block body %}
+<!--NAVBAR-->
+{% include 'main/partials/navbar.html' %}
+<!--  LEFT NAV  -->
 
-    {% include 'main/partials/navbar.html' %}
-    <div class="jumbotron jc">
-        <div class="container container-lg container-md container-sm">
-            <div class="row">
-                <div class="col-3">
-                    <!--side navbar-->
-
-                    <a type="button" class="btn btn-outline-secondary  text-left   d-block my-2"><i
-                            class="fas fa-camera"> </i>
-                        Camera</a>
-                    <a type="button" class="btn btn-outline-secondary  text-left  d-block my-2"> <i
-                            class="fas fa-space-shuttle">
-                    </i> Photographers</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fas fa-portrait"></i>Digital Photography</a>
-                    <a type="button" class="btn btn-outline-secondary  text-left d-block my-2"> <i
-                            class="fas fa-user-astronaut"></i> </i> Astrophysics</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fab fa-old-republic"></i> Physics of Everyday life</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fas fa-satellite"></i>
-                        Relativity(Physics)</a>
-                    <a type="button" class="btn btn-outline-secondary  text-left d-block my-2"> <i
-                            class="fas fa-meteor"></i>
-                        Physics</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fas fa-history"></i>
-                        History --</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fas fa-rocket"></i>
-                        Science</a>
-                    <a type="button" class="btn btn-outline-secondary text-left  d-block my-2"> <i
-                            class="fab fa-cuttlefish"></i>
-                        C(Programming language)</a>
-                    <a type="button" class="btn btn-outline-secondary  text-left d-block my-2"><i
-                            class="fas fa-plus"></i>
-                        Discover Spaces</a>
-                    <hr>
-                    {% include 'main/partials/footer.html' %}
-
-                </div>
-
-                <div class="col-6">
-                    <!--newsfeed section-->
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <a class="text-secondary" href="#"><i class="fas fa-user-circle fa-lg">
-                                <small> {{ usr.username }}</small></i></a>
-                            <h4 class="text-secondary">Whats is your question link?</h4>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-1">
-                                    <a class="text-secondary" href="#"><i class="fas fa-user-circle fa-2x"> </i>
-                                    </a>
-                                </div>
-
-                                <div class="col-11 ">
-                                    <h5>{{ usr.username }}</h5>
-                                    <small>{{ usr.email }}</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <cite title="Source Title">Should i remove all stickers from a new laptop?</cite>
-
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Libero nulla odit sapiente iste soluta delectus ad
-                                perspiciatis fuga! Molestias, sunt?
-                            </p>
-                            <img class="card-img"
-                                 src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-                                 alt="tech"/>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Maxime cum distinctio aut dolor sunt aperiam a similique
-                                aspernatur omnis possimus Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Eligendi temporibus velit
-                                aspernatur in. Dolores dolorem veritatis dolor minus adipisci
-                                nobis voluptatibus doloribus placeat voluptates? Blanditiis
-                                saepe fuga tempore inventore. Laboriosam.
-                            </p>
-
-                            <img class="card-img"
-                                 src="https://prod-discovery.edx-cdn.org/media/course/image/efc25613-f0ea-4423-bfcd-4d94c317f085-5dd84e82e22b.small.png"
-                                 alt="image"/>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Saepe, numquam!
-                            </p>
-
-                            <div class="card-footer">
-                                <small class="text-muted">
-                                    Views . <a href="#">View Upvoters</a> .
-                                    <a href="#"> View Shares</a></small>
-                            </div>
-
-                            <div class="card-footer m">
-
-                                <div class="d-flex justify-content-between">
-
-                                    <div class="firstpart">
-                                        <a class="mx-3" href="#"><i class="fas fa-angle-up"></i> </a>
-                                        <a class="mx-3" href="#"> <i class="fas fa-share"></i></a>
-                                        <a class="mx-3" href="#"><i class="far fa-comment"></i> </a>
-
-                                    </div>
-                                    <div class="secondpart">
-
-                                        <a class="mx-2" href="#"><i class="fas fa-share"></i></a>
-                                        <a class="mx-2" href="#"><i class="fas fa-ellipsis-h"></i></a>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-2">
-                    <table class="table table-bordered table-gray">
-                        <thead>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Visit your feed
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Follow 5 more Spaces
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Follow 7 more topics
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Upvote 3 more good news
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Ask a question
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td><input class="d-inline" type="checkbox" aria-label="Checkbox for following text input">
-                                Answer a question
-                            </td>
-
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+<section class="hero is-info is-medium is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed eiusmod tempor incididunt
+                ut labore et dolore magna aliqua</h1>
         </div>
     </div>
+</section>
+<div class="container">
+    <div class="columns">
+        <div class="column is-3 control has-icons-left mt-5">
+            <p>DISCOVER MORE OF WHAT MATTERS TO YOU</p>
+            <a class="button is-link is-outlined is-normal my-2">Self</a>
+            <a class="button is-link is-outlined is-normal my-2">Programming</a>
+            <a class="button is-link is-outlined is-normal my-2">Relationships</a>
+            <a class="button is-link is-outlined is-normal my-2">Data Science</a>
+            <a class="button is-link is-outlined is-normal my-2">Machine learning</a>
+            <a class="button is-link is-outlined is-normal my-2">Politics</a>
+            <a class="button is-link is-outlined is-normal my-2">Health</a>
+
+            <hr>
+            <div>
+                <a class="mx-2" href="#">Help</a>
+                <a class="mx-2" href="#">Contact</a>
+                <a class="mx-2" href="#">About</a>
+                <a class="mx-2" href="#">Terms</a>
+
+
+                <div class="content has-text-centered mt-3">
+                    <p>
+                        ALL RIGHT RESERVED BY <strong>TEAM JIGAO</strong>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div></div>
+
+
+
+        <div class="column ">
+
+            <section class="column is-9 is-offset-1">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet
+                                massa fringilla egestas. Nullam condimentum luctus turpis.
+                            </p>
+                        </div>
+
+                    </div>
+                </article>
+            </section>
+
+            <!-- START ARTICLE FEED -->
+            <!-- START ARTICLE -->
+            <div class="card article">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-center">
+                            <img src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg"
+                                class="author-image" alt="Placeholder image">
+                        </div>
+                        <div class="media-content has-text-centered">
+                            <p class="title article-title">Sapien eget mi proin sed 🔱</p>
+                            <p class="subtitle is-6 article-subtitle">
+                                <a href="#">@daria</a> on February 17, 2018
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content article-body">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Accumsan lacus vel facilisis volutpat est
+                            velit egestas. Sapien eget mi proin sed. Sit amet mattis vulputate enim.
+                        </p>
+                        <p>
+                            Commodo ullamcorper a lacus vestibulum sed arcu. Fermentum leo vel orci porta non. Proin
+                            fermentum leo vel orci porta non pulvinar. Imperdiet proin fermentum leo vel. Tortor
+                            posuere ac ut consequat semper viverra. Vestibulum lectus mauris ultrices eros.
+                        </p>
+                        <h3 class="has-text-centered">Lectus vestibulum mattis ullamcorper velit sed ullamcorper
+                            morbi. Cras tincidunt lobortis feugiat vivamus.</h3>
+                        <p>
+                            In eu mi bibendum neque egestas congue quisque egestas diam. Enim nec dui nunc mattis
+                            enim ut tellus. Ut morbi tincidunt augue interdum velit euismod in. At in tellus integer
+                            feugiat scelerisque varius morbi enim nunc. Vitae suscipit tellus mauris a diam.
+                            Arcu non sodales neque sodales ut etiam sit amet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END ARTICLE -->
+            <!-- END ARTICLE FEED -->
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
 
 {% endblock %}

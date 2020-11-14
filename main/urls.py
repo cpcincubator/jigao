@@ -8,6 +8,11 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('register/', views.register, name='register'),
+    path('answer/', views.answer, name='answer'),
+    path('contact/', views.contact, name='contact-page'),
+    path('post', views.post, name='post')
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
