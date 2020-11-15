@@ -11,7 +11,7 @@
 
 {% block body %}
 
-<section class="container">
+<section class="container mt-5">
     <div class="columns is-multiline">
         <div class="column is-8 is-offset-2 register">
             <div class="columns">
@@ -25,20 +25,37 @@
                     <h1 class="title is-4">Sign up today</h1>
                     <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
                     <form>
+
                         <div class="field">
                             <div class="control">
-                                <input class="input is-medium" type="text" placeholder="Name">
+                                <input class="input is-medium" id="name" type="text" placeholder="Name">
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="control">
-                                <input class="input is-medium" type="email" placeholder="Email">
+                                <input class="input is-medium" id="email" type="email" placeholder="Email">
                             </div>
                         </div>
-                        <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
-                        <br />
-                        <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" id="password1" type="password" placeholder="password">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" id="password2" type="password"
+                                    placeholder="confirm password">
+                            </div>
+                        </div>
+                        {% comment %} <a id="p1" type="submit"
+                            class="button is-block is-primary is-fullwidth is-medium"> {% endcomment %}
+                            <a id="p1" class="button alert is-block is-primary is-fullwidth is-medium">Register</a>
+
+                            <br />
+
+                            <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
                     </form>
                 </div>
             </div>
@@ -80,3 +97,36 @@
 
 
 {% endblock %}
+
+{% block scripts %}
+<script>
+    $("#p1").on("click", function () {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var password1 = $("#password1").val();
+        var password2 = $("#password2").val();
+        var data = {
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+            name: name,
+            email: email,
+            password1: password1,
+            password2: password2,
+        };
+        console.log(data);
+        $.ajax({
+
+                url: '{% url "register" %}',
+                type: "POST",
+                data: data,
+            })
+            .done(function (result) {
+                alert(result.msg)
+
+            })
+            .fail(function () {
+                console.log("Error!!")
+            });
+    });
+</script>
+
+{% endblock  %}

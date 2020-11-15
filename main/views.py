@@ -1,7 +1,10 @@
+from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from django.contrib.auth import get_user
-from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.models import auth
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -9,69 +12,73 @@ from django.contrib.auth.models import User
 
 def home(request):
     if request.user.is_authenticated:
-        user = get_user(request)
-        context = {
-            'usr': user
-        }
-        return render(request, "main/index.html", context)
+        return render(request, "main/index.html")
     else:
         return render(request, 'main/index.html')
+
 
 def answer(request):
     return render(request, 'main/answer.html')
 
+
 def post(request):
     return render(request, 'main/post.html')
+
 
 def contact(request):
     return render(request, 'main/contact.html')
 
-def login(request):
-    if request.user.is_authenticated:
-        return redirect('/')
-    else:
-        if request.method == 'GET':
-            return render(request, 'account/login.html')
 
-        elif request.method == 'POST':
-            username = request.POST['username']
-            password = request.POST['password']
+def userlogin(request):
+    # if request.user.is_authenticated:
+    #     return redirect('/')
+    # else:
+    if request.method == 'GET':
+        return render(request, 'account/login.html')
 
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                auth_login(request, user)
-                return redirect('login')
-            else:
-                return render(request, 'account/login.html', {'msg': 'Invalid username and password'})
+    elif request.method == 'POST':
+        name = request.POST['name']
+        password = request.POST['password']
 
+        user = authenticate(request, username=name, password=password)
+        user.save()
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            return JsonResponse({'msg': 'Invalid username and password'})
+    
 
-def logout(request):
-    auth_logout(request)
+def logout_view(request):
+    logout(request)
     return redirect('/')
 
 
 def register(request):
-    if request.user.is_authenticated:
-        return redirect('login')
-    else:
-        if request.method == 'GET':
-            return render(request, 'account/register.html')
-        elif request.method == 'POST':
-            username = request.POST['username']
-            email = request.POST['email']
-            password = request.POST['password']
+    # if request.user.is_authenticated:
+    #     return redirect()
 
-            username_count = User.objects.filter(username=username).count()
-            email_count = User.objects.filter(email=email).count()
+    if request.method == 'GET':
+        return render(request, 'account/register.html')
 
-            if username_count == 0 and email_count == 0:
-                User.objects.create_user(username=username, email=email, password=password)
-                return redirect('login')
+    elif request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        username_count = User.objects.filter(username=name).count()
+        email_count = User.objects.filter(email=email).count()
 
-            elif username_count > 0:
-                return render(request, 'account/register.html', {'msg': 'This username is in used'})
+        if username_count > 0:
+            return JsonResponse({'msg': 'This username is in used'})
 
-            elif email_count > 0:
-                return render(request, 'account/register.html', {'msg': 'This email is in used'})
+        if email_count > 0:
+            return JsonResponse({'msg': 'This email is in used'})
 
+        if password1 == password2:
 
+            User.objects.create_user(
+                username=name, email=email, password=password1)
+            return JsonResponse({'msg': 'Account created Sucessfully!'})
+        else:
+            return JsonResponse({'msg': 'password did not match'})

@@ -2,56 +2,90 @@
 {% load static %}
 
 {% block meta %}
-    <title>Jigao | Login</title>
+<title>Jigao | Login</title>
 {% endblock %}
 
 
 {% block style %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock  %}
- {% block body %}
-    <section class="hero is-success is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-black">Login</h3>
-                    <hr class="login-hr">
-                    <p class="subtitle has-text-black">Please login to proceed.</p>
-                    <div class="box">
-                        <figure class="avatar">
-                            <img src="https://placehold.it/128x128">
-                        </figure>
-                        <form>
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
-                                </div>
+{% block body %}
+<section class="hero is-white is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-black">Login</h3>
+                <hr class="login-hr">
+                <p class="subtitle has-text-black">Please login to proceed.</p>
+                <div class="box">
+                    <figure class="avatar image is-64x64 ">
+                        <img class="is-rounded" src="https://placehold.it/64x64">
+                    </figure>
+                    <form method="POST" action=''>
+                       {% csrf_token %}
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-large" name="name" type="text" placeholder="Your name"
+                                    autofocus="">
                             </div>
+                        </div>
 
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="password" placeholder="Your Password">
-                                </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-large" name="password" type="password" placeholder="Your Password">
                             </div>
-                            <div class="field">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    Remember me
-                                </label>
-                            </div>
-                            <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in"
-                                    aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                    <p class="has-text-grey">
-                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
-                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-                        <a href="../">Need Help?</a>
-                    </p>
+                        </div>
+                        <div class="field">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                Remember me
+                            </label>
+                        </div>
+                        <input name="login" type="submit" class="button is-block is-info is-large is-fullwidth"/>
+                        
+                    </form>
                 </div>
+                <p class="has-text-grey">
+                    <a href="{% url 'register' %}">Sign Up</a> &nbsp;·&nbsp;
+                    <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                    <a href="../">Need Help?</a>
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 {% endblock %}
+{% comment %} 
+{% block scripts %}
 
+<script>
+    $("#login").on("click", function () {
+
+        var name = $("#name").val();
+        var password = $("#password").val();
+
+        var data = {
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+            name: name,
+            password: password,
+
+        };
+        console.log(data);
+        $.ajax({
+
+                url: '{% url "login" %}',
+                type: "POST",
+                data: data,
+            })
+            .done(function (result) {
+                alert(result.msg)
+
+            })
+            .fail(function () {
+                console.log("Error!!")
+            });
+
+    });
+</script>
+{% endblock %} {% endcomment %}
